@@ -18,11 +18,13 @@ if(isset($_POST['upload']) && $_FILES['userfile']['size'] > 0)
     include 'dbConnect.php';
     //include 'library/opendb.php';
 
-    $query = "INSERT INTO upload (name, size, type, content ) ".
+    $sql = "INSERT INTO upload (name, size, type, content ) ".
         "VALUES ('$fileName', '$fileSize', '$fileType', '$content')";
 
-    mysql_query($query) or die('Error, query failed');
-    include 'library/closedb.php';
+    $result = $link->query($sql) or die('Error, query failed');
+
+    //mysql_query($query) or die('Error, query failed');
+    //include 'library/closedb.php';
 
     echo "<br>File $fileName uploaded<br>";
 }
