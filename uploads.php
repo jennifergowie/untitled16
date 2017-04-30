@@ -21,7 +21,7 @@ if(isset($_POST['upload']) && $_FILES['userfile']['size'] > 0)
     $sql = "INSERT INTO upload (name, size, type, content ) ".
         "VALUES ('$fileName', '$fileSize', '$fileType', '$content')";
 
-    $result = $link->query($sql) or die('Error, query failed');
+    $result = $link->query($sql);// or die('Error, query failed');
 
     //mysql_query($query) or die('Error, query failed');
     //include 'library/closedb.php';
